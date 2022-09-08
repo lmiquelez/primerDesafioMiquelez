@@ -2,6 +2,7 @@
 let provincias = [];
 let montoProvincia = [] ;
 
+
 function cargaDatos() {
     let x = prompt("Ingresa la provincia de residencia");
     provincias[0] = x;
@@ -24,25 +25,31 @@ function cargaDatos() {
 
      let pagoResidencia = 80
 
-let resultadosPrevios = [] ;
-let resultados = [] ;
+
+     let resultadosPrevios = [] ;
+     let resultados = [] ;
+
+
+
 for (let index = 1; index <= f; index++) {
     
-    
-    resultadosPrevios[index] = (montoProvincia[index]/montoProvincia[0]) * 100
-    resultados [index] = (resultadosPrevios[index] / 100) * 20    
+    resultadosPrevios[index] = montoProvincia[0]   / montoProvincia[index]
+
+   // resultados [index] = (resultadosPrevios[index] * 20 ) / 100
+
 }
+
 
 alert(`El pago a ${provincias[0]} es de ${pagoResidencia} % `)
 
 for (let g = 1; g <= f; g++) {
     
   
-    alert(`El pago a ${provincias[g]} es de ${resultados[g]} % `)
+    alert(`El pago a ${provincias[g]} es de ${resultadosPrevios[g]} % `)
 }
 }
-}  
- 
+
+}
 
 
 cargaDatos();  
@@ -55,8 +62,30 @@ const todasProvincias =  Object.assign({}, provincias)
 const todosMontos = Object.assign({}, montoProvincia )
 
 console.log(todasProvincias);
-console.log(montosProvincia);
+console.log(montoProvincia);
 
 
+let  filtro = Number (prompt("facturaciones mayores a :"))
 
+function filtrado(filtro) {
+   
+    let arrayFiltro = [];
+
+for (let i = 0; i<resultadosPrevios.lenght; i++) {
+  
+    var currentNumber = numbers[i];
+  
+    if (currentNumber > filtro) {
+
+   arrayFiltro.push(currentNumber)
+  }
+  
+}
+
+
+filtrado();
+
+console.log(arrayFiltro);
+
+ }
 
